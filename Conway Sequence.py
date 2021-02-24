@@ -1,5 +1,3 @@
-from numpy import *
-
 f = int(input())
 n = int(input())
 
