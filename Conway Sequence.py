@@ -33,6 +33,3 @@ for i in range(n-2):
     line = tempList.copy()
 
 print(' '.join([str(i) for i in tempList]))
-
-
-        
