@@ -1,31 +1,39 @@
+import sys
 f = int(input())
 n = int(input())
 
-prevLine = []
-prevLine.append(1)
-prevLine.append(f)
-nextLine = []
+if(n == 1):
+    print(f)
+    sys.exit()
 
-def findSeqFromIndexJ(j):
+line = []
+line.append(1)
+line.append(f)
+
+for i in range(n-2):
+    tempList = []
+    curNum = line[0]
     counter = 0
-    numToCount = prevLine[j]
-    for i in range(j,len(prevLine)):
-        if(prevLine[i] == numToCount):
-            counter += 1
-        else:
-            break
-    return (counter, numToCount)
+    for j in range(len(line)):
+        try:
+            if(line[j] != curNum):
+                tempList.append(counter)
+                tempList.append(curNum)
+                curNum = line[j]
+                counter = 1
+            else:
+                counter += 1
+        except IndexError:
+            print("We are here at " + str(i))
+            tempList.append(counter)
+            tempList.append(curNum)
+            counter = 0
+    tempList.append(counter)
+    tempList.append(curNum)
+    line = tempList.copy()
 
-for i in range(n):
-    nextLine = []
-    print(prevLine)
-    for j in range(len(prevLine)):
-        (amountOfNum, num) = findSeqFromIndexJ(j)
-        nextLine.append(amountOfNum)
-        nextLine.append(num)
-        j += amountOfNum
-    prevLine = nextLine.copy()
-    del nextLine[:]
-    print("Cycle number " + str(i) + " finished")
-
-print(prevLine)
+for i in range(len(tempList)):
+    if(i != len(tempList)-1):
+        print(tempList[i], end = ' ')
+    else:
+        print(tempList[i])
