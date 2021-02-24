@@ -32,8 +32,7 @@ for i in range(n-2):
     tempList.append(curNum)
     line = tempList.copy()
 
-for i in range(len(tempList)):
-    if(i != len(tempList)-1):
-        print(tempList[i], end = ' ')
-    else:
-        print(tempList[i])
+print(' '.join([str(i) for i in tempList]))
+
+
+        
