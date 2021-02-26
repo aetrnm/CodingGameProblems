@@ -1,16 +1,10 @@
-import sys
 f = int(input())
 n = int(input())
 
-if(n == 1):
-    print(f)
-    sys.exit()
-
 line = []
-line.append(1)
 line.append(f)
 
-for i in range(n-2):
+for i in range(n-1):
     tempList = []
     curNum = line[0]
     counter = 0
@@ -26,4 +20,4 @@ for i in range(n-2):
     tempList.append(curNum)
     line = tempList.copy()
 
-print(' '.join([str(i) for i in tempList]))
+print(' '.join([str(i) for i in line]))
