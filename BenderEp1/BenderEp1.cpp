@@ -24,13 +24,15 @@ public:
 	char cellInfo;
 	bool isVisited;
 	
-	Cell(char inputCell) {
+	Cell(char inputCell): inversion(false), beer(false), isVisited(false)
+	{
 		this->cellInfo = inputCell;
 	}
-	Cell()
+
+	Cell(): inversion(false), beer(false), isVisited(false)
 	{
 		this->cellInfo = ' ';
-	};
+	}
 
 	void saveState(bool inversion, string& direction, bool beer)
 	{
